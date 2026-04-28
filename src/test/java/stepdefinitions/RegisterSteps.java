@@ -14,6 +14,7 @@ import io.cucumber.java.en.When;
 import pages.RegisterPage;
 import utils.ConfigReader;
 import utils.DriverFactory;
+import utils.TestDataUtil;
 
 public class RegisterSteps {
 	
@@ -46,6 +47,12 @@ public class RegisterSteps {
 		
 		Map<String, String> data = dataTable.asMap(String.class, String.class);
 		
+		String username = data.get("username");
+
+		if (!"testuser".equals(username)) {
+		    username = TestDataUtil.generateUsername();
+		}
+		
 		regPage.enterFirstName(data.get("firstName"));
 	    regPage.enterLastName(data.get("lastName"));
 	    regPage.enterAddress(data.get("address"));
@@ -54,7 +61,7 @@ public class RegisterSteps {
 	    regPage.enterZipCode(data.get("zipCode"));
 	    regPage.enterPhone(data.get("phone"));
 	    regPage.enterSSN(data.get("ssn"));
-	    regPage.enterUsername(data.get("username"));
+	    regPage.enterUsername(username);
 	    regPage.enterPassword(data.get("password"));
 	    regPage.enterConfirmPassword(data.get("confirmPassword"));
 				
@@ -88,6 +95,45 @@ public class RegisterSteps {
 	        errorMsg != null && !errorMsg.isEmpty(),
 	        "Error message not displayed"
 	    );
+	}
+	
+	@And("user enters invalid registration details")
+	public void user_enters_invalid_registration_details(DataTable dataTable)
+	{
+	    Map<String, String> data = dataTable.asMap(String.class, String.class);
+
+	    if(data.get("firstName") != null && !data.get("firstName").isEmpty())
+	        regPage.enterFirstName(data.get("firstName"));
+
+	    if(data.get("lastName") != null && !data.get("lastName").isEmpty())
+	        regPage.enterLastName(data.get("lastName"));
+
+	    if(data.get("address") != null && !data.get("address").isEmpty())
+	        regPage.enterAddress(data.get("address"));
+
+	    if(data.get("city") != null && !data.get("city").isEmpty())
+	        regPage.enterCity(data.get("city"));
+
+	    if(data.get("state") != null && !data.get("state").isEmpty())
+	        regPage.enterState(data.get("state"));
+
+	    if(data.get("zipCode") != null && !data.get("zipCode").isEmpty())
+	        regPage.enterZipCode(data.get("zipCode"));
+
+	    if(data.get("phone") != null && !data.get("phone").isEmpty())
+	        regPage.enterPhone(data.get("phone"));
+
+	    if(data.get("ssn") != null && !data.get("ssn").isEmpty())
+	        regPage.enterSSN(data.get("ssn"));
+
+	    if(data.get("username") != null && !data.get("username").isEmpty())
+	        regPage.enterUsername(data.get("username"));
+
+	    if(data.get("password") != null && !data.get("password").isEmpty())
+	        regPage.enterPassword(data.get("password"));
+
+	    if(data.get("confirmPassword") != null && !data.get("confirmPassword").isEmpty())
+	        regPage.enterConfirmPassword(data.get("confirmPassword"));
 	}
 
 }

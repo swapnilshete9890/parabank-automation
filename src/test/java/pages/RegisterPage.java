@@ -28,7 +28,7 @@ public class RegisterPage extends BasePage {
     By confirmPassword = By.id("repeatedPassword");
     By registerButton = By.cssSelector("input[value='Register']");
     By successMessage = By.xpath("//*[contains(text(),'Your account was created successfully')]");
-    By errorMsg = By.xpath("//*[contains(text(),'error') or contains(text(),'Error')]");
+    By errorMsg = By.cssSelector(".error");
 
 
 	//Action Methods
