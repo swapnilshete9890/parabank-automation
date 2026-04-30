@@ -22,20 +22,11 @@ public class RegisterSteps {
 	
 	RegisterPage regPage;
 
-
-	@Given("user is on login page")
-	public void user_is_on_login_page() {
-		
-		 log.info("Opening application URL");
-
-		regPage = new RegisterPage(DriverFactory.getDriver());
-		ConfigReader config = new ConfigReader();
-		DriverFactory.getDriver().get(config.getBaseUrl());
-	}
-
 	@When("user clicks on register link")
 	public void user_clicks_on_register_link() {
 
+		regPage = new RegisterPage(DriverFactory.getDriver());
+		
 		log.info("Clicking on Register link");
 		regPage.clickRegisterLink();
 	}

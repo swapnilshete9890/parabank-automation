@@ -1,3 +1,4 @@
+@LoginPage
 Feature: Login Functionality
 
   @LoginWithValidCredentials
@@ -19,7 +20,26 @@ Feature: Login Functionality
       | wronguser | wrong123 |
       | wronguser | demo     |
       | john      | wrong123 |
-      
+
+  @LoginWithBothBlankFields
+  Scenario: User login with blank username and password
+    Given user is on login page
+    When user enters username "" and password ""
+    And user clicks on login button
+    Then user should see login error message
+
+  @LoginWithBlankUsername
+  Scenario: User login with blank username
+    Given user is on login page
+    When user enters username "" and password "demo"
+    And user clicks on login button
+    Then user should see login error message
+
+  @LoginWithBlankPassword
+  Scenario: User login with blank password
+    Given user is on login page
+    When user enters username "john" and password ""
+    And user clicks on login button
+    Then user should see login error message
+
    
-   
-   #Scenario Outline: User login with blank fields   

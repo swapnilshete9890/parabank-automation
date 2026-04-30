@@ -1,0 +1,35 @@
+# Maven
+target/
+
+# Logs
+logs/
+*.log
+
+# Compiled files
+*.class
+
+# IDE
+.project
+.classpath
+.settings/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Reports
+reports/
+test-output/
+extent-reports/
+allure-results/
+allure-report/
+
+# Screenshots
+screenshots/
+
+# Maven wrapper (optional)
+.mvn/
+mvnw
+mvnw.cmd

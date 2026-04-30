@@ -1,3 +1,5 @@
+
+@RegisterPage
 Feature: Register functionality
 
   @ValidRegistration
@@ -75,7 +77,7 @@ Scenario: User registers with existing username
     | password        | demo123      |
     | confirmPassword | demo123      |
   And user clicks on register button
-  Then user should see error message    
+  Then user should see error message 
     
     
     
