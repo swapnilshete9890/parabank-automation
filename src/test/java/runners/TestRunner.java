@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 	    features = "src/test/resources/features", 
-	    glue = "stepdefinitions", tags = "@LoginPage",
+	    glue = "stepdefinitions", tags = "@LoginWithCaseSensitivity or @LoginWithLeadingTrailingSpaces or @LoginWithSpecialCharacter",
 	    dryRun = false,
 	    plugin = {
 	        "pretty",

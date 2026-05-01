@@ -42,4 +42,23 @@ Feature: Login Functionality
     And user clicks on login button
     Then user should see login error message
 
-   
+  @LoginWithSpecialCharacter
+  Scenario: User login with special characters in username and password
+    Given user is on login page
+    When user enters username "@john#" and password "demo@123"
+    And user clicks on login button
+    Then user should see login error message
+
+  @LoginWithLeadingTrailingSpaces
+  Scenario: User login with leading and trailing spaces in credentials
+    Given user is on login page
+    When user enters username " john " and password " demo "
+    And user clicks on login button
+    Then user should see login error message
+
+  @LoginWithCaseSensitivity
+  Scenario: User login with case-sensitive credentials
+    Given user is on login page
+    When user enters username "JOHN" and password "DEMO"
+    And user clicks on login button
+    Then user should see login error message
