@@ -8,11 +8,9 @@ import org.testng.Assert;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.RegisterPage;
-import utils.ConfigReader;
 import utils.DriverFactory;
 import utils.TestDataUtil;
 
