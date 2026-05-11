@@ -1,5 +1,7 @@
 package stepdefinitions;
 
+import java.sql.Driver;
+
 import org.testng.Assert;
 
 import io.cucumber.java.en.Then;
@@ -9,7 +11,7 @@ import utils.DriverFactory;
 
 public class LoginSteps {
 	
-	LoginPage lp;
+	LoginPage lp= new LoginPage(DriverFactory.getDriver());
 
 	@Then("user should be redirected to Accounts Overview page")
 	public void user_should_be_redirected_to_accounts_overview_page() 

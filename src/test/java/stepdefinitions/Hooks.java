@@ -2,6 +2,8 @@ package stepdefinitions;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -27,7 +29,7 @@ public class Hooks {
 
             log.error("Test Failed: " + scenario.getName());
 
-            ScreenshotUtil.takeScreenshot(
+            ScreenshotUtil.takeScreenshot(	
                 DriverFactory.getDriver(),
                 scenario.getName().replaceAll(" ", "_")
             );

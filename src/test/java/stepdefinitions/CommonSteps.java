@@ -9,7 +9,7 @@ import utils.DriverFactory;
 
 public class CommonSteps {
 	
-	LoginPage lp;
+	  LoginPage lp = new LoginPage(DriverFactory.getDriver());
 	
 	@Given("user is on login page")
 	public void user_is_on_login_page() {

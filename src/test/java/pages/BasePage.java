@@ -5,6 +5,7 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
@@ -31,5 +32,16 @@ public class BasePage {
     protected String getText(By locator) 
     {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
+    }
+    
+    protected boolean isDisplayed(By locator)
+    {
+    	return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).isDisplayed();
+    }
+    
+    protected void selectByIndex(By locator, int index)
+    {
+    	Select select = new Select(wait.until(ExpectedConditions.visibilityOfElementLocated(locator)));
+    	select.selectByIndex(index);
     }
 }
