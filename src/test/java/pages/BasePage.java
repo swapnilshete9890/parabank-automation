@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -41,7 +42,21 @@ public class BasePage {
     
     protected void selectByIndex(By locator, int index)
     {
-    	Select select = new Select(wait.until(ExpectedConditions.visibilityOfElementLocated(locator)));
-    	select.selectByIndex(index);
+        WebElement dropdown = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(locator));
+
+        wait.until(driver -> new Select(dropdown).getOptions().size() > index);
+
+        Select select = new Select(dropdown);
+       // System.out.println("Dropdown options count: " + select.getOptions().size()); //use when dropdown count is needed
+        select.selectByIndex(index);
     }
+
+
+
+
+
+
+
+
 }

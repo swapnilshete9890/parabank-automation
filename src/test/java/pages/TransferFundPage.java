@@ -18,7 +18,7 @@ public class TransferFundPage extends BasePage {
 	By transferFundTitle     = By.xpath("//h1[normalize-space()='Transfer Funds']");
 	By transferCompleteTitle = By.xpath("//h1[@class='title'][contains(text(),'Transfer Complete')]");
 	By transferMessage       = By.xpath("//*[@id='showResult']/p[1]");
-	
+	By transferErrorMsg      = By.xpath("//h1[contains(normalize-space(),'Error')]/following-sibling::p");	
 	
 	public void clickTransferFundLink()
 	{
@@ -57,12 +57,12 @@ public class TransferFundPage extends BasePage {
 	
 	public void selectFromAccount()
 	{
-		selectByIndex(fromAccountDropdown, 1);
+		selectByIndex(fromAccountDropdown, 0);
 	}
 	
 	public void selectToAccount()
 	{
-		selectByIndex(toAccountDropdown, 2);
+		selectByIndex(toAccountDropdown, 1);
 	}
 	
 	public void clickTransferButton()
@@ -78,6 +78,11 @@ public class TransferFundPage extends BasePage {
 	public String getTransferMessage()
 	{
 		return getText(transferMessage);
+	}
+	
+	public String getTransferErrorMessage() 
+	{
+	    return getText(transferErrorMsg);
 	}
 	
 	

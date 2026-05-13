@@ -18,7 +18,7 @@ Feature: Transfer Fund functionality
     Then user should see amount field, from account dropdown, to account dropdown and transfer button
 
   @TransferFundSuccessfully
-  Scenario: Verify user able to transfer amount from one account to another account successfully
+  Scenario: Verify user is able to transfer amount from one account to another account successfully
     Given user is on login page
     When user enters valid username and password
     And user clicks on login button
@@ -27,3 +27,14 @@ Feature: Transfer Fund functionality
     And user selects account number from from account and to account dropdown
     And user clicks on Transfer button
     Then user should see successful transfer message
+
+  @TransferAmountFieldBlank
+  Scenario: Verify user should see error message when amount field is left blank and user clicks on Transfer button
+    Given user is on login page
+    When user enters valid username and password
+    And user clicks on login button
+    And user clicks on Transfer Funds link
+    And user keeps amount field blank
+    And user selects account number from from account and to account dropdown
+    And user clicks on Transfer button
+    Then user should see transfer error message

@@ -6,6 +6,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import utils.DriverFactory;
@@ -20,6 +21,16 @@ public class Hooks {
 
         DriverFactory.initDriver();
         log.info("Starting scenario: " + scenario.getName());
+    }
+
+    @AfterStep
+    public void addScreenshotForFailedStep(Scenario scenario) {
+        if (scenario.isFailed()) {
+            byte[] screenshot = ((TakesScreenshot) DriverFactory.getDriver())
+                    .getScreenshotAs(OutputType.BYTES);
+
+            scenario.attach(screenshot, "image/png", "Failed Step Screenshot");
+        }
     }
 
     @After

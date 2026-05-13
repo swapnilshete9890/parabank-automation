@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 	    features = "src/test/resources/features", 
-	    glue = "stepdefinitions", tags = "@TransferFundSuccessfully",
+	    glue = "stepdefinitions", tags = "",
 	    dryRun = false,
 	    plugin = {
 	        "pretty",

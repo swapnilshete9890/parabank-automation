@@ -60,5 +60,20 @@ public class TransferFundSteps {
 		System.out.println(tf.getTransferMessage());
 
 	}
+	
+	@And("user keeps amount field blank")
+	public void user_keeps_amount_field_blank() {
+	   
+		tf.enterAmount("");
+		}
+	
+	@Then("user should see transfer error message")
+	public void user_should_see_transfer_error_message() {
+	   
+		String errorMsg = tf.getTransferErrorMessage();
+		Assert.assertTrue( 
+				errorMsg != null && !errorMsg.isEmpty(),
+	        "Error message not displayed");
+	}
 
 }
